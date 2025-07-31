@@ -1,0 +1,238 @@
+@use "../utilities" as u;
+
+.hero {
+  height: calc(100vh - 9rem);
+  padding-left: 2.4rem;
+  @include u.bgImage;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/pompeo-47e63.appspot.com/o/Assets%2Fhero-bg-image.jpg?alt=media&token=659d374b-141d-456e-94dc-97d86affbab4");
+  background-color: #f3f3f3;
+  overflow: hidden;
+
+  @include u.breakpoint(lg) {
+    height: auto;
+    padding-left: 0;
+  }
+
+  .container {
+    @include u.flex(unset, row);
+    @include u.maxWidth;
+    height: 100%;
+    backdrop-filter: blur(0.15rem);
+    position: relative;
+
+    @include u.breakpoint(lg) {
+      flex-direction: column;
+    }
+  }
+
+  .left {
+    flex: 1;
+    @include u.reloadSlideEffect(up);
+
+    @include u.breakpoint(lg) {
+      @include u.flex(center, column);
+      @include u.reloadSlideEffect(down);
+      margin-top: 6rem;
+      width: 100%;
+    }
+
+    @include u.breakpoint(md) {
+      margin-top: 4.5rem;
+    }
+
+    @include u.breakpoint(sm) {
+      margin-top: 6rem;
+    }
+
+    .subTitle {
+      @include u.subtitleRed;
+    }
+
+    h1 {
+      font-size: clamp(3.8rem, 5.5vw, 4.8rem);
+      font-weight: 500;
+      max-width: 50rem;
+      line-height: 5.8rem;
+      margin-bottom: 0.1rem;
+
+      @include u.breakpoint(lg) {
+        text-align: center;
+      }
+
+      @include u.breakpoint(md) {
+        max-width: unset;
+        width: 90%;
+        line-height: 4.8rem;
+      }
+
+      span {
+        @include u.ampersandStyle;
+        font-size: clamp(5rem, 7.5vw, 6.8rem);
+      }
+    }
+
+    .subText {
+      font-size: 1.6rem;
+      margin-block: 1rem 5rem;
+      line-height: 2.6rem;
+      font-weight: 400;
+      color: u.$dark-100;
+
+      @include u.breakpoint(lg) {
+        max-width: 25em;
+        text-align: center;
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+    position: relative;
+
+    .image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100rem;
+      height: 50rem;
+      background: #00000000
+        url("https://firebasestorage.googleapis.com/v0/b/pompeo-47e63.appspot.com/o/Assets%2Fhero-image.png?alt=media&token=772cc734-2e03-4b55-9b84-61f3577ec8b2")
+        center center/cover no-repeat;
+      background-size: 80rem;
+      margin-right: -19.6rem;
+      z-index: -1;
+
+      @include u.breakpoint(lg) {
+        position: unset;
+        width: 80rem;
+        height: 40rem;
+        margin: 5rem 0;
+        transform: translate(0, 0);
+        background-size: contain;
+      }
+
+      @include u.breakpoint(md) {
+        width: 56rem;
+        height: 28rem;
+        margin: 6rem 0 12rem;
+      }
+
+      @include u.breakpoint(sm) {
+        width: 34rem;
+        height: 17rem;
+        margin: 3rem 0 10rem;
+      }
+    }
+  }
+}
+
+.featured {
+  padding-block: 3rem;
+
+  @include u.breakpoint(md) {
+    padding-block: u.$sectPaddingBlock;
+  }
+
+  .showcase2 {
+    margin-right: 2rem;
+
+    @include u.breakpoint(lg) {
+      margin-right: 0;
+    }
+
+    @include u.breakpoint(md) {
+      margin-top: 9rem;
+    }
+
+    img {
+      width: 35rem;
+    }
+  }
+}
+
+.collection {
+  @include u.collectionStyles;
+  @include u.inViewSlideEffect(up);
+}
+
+.startShopping {
+  padding: 12rem 2.5rem;
+  @include u.bgImage;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/pompeo-47e63.appspot.com/o/Assets%2Fstart-shopping.jpeg?alt=media&token=8162a5c7-c299-49cf-a66a-eb79f79ddeb3");
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+
+  @include u.breakpoint(md) {
+    padding-inline: 4rem;
+    padding-bottom: 18rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 0;
+    background: linear-gradient(
+      to right,
+      u.$light-100,
+      rgba(u.$light-100, 0) 60%
+    );
+    z-index: -1;
+  }
+
+  .container {
+    @include u.maxWidth;
+    @include u.inViewSlideEffect(right);
+    z-index: 100;
+
+    @include u.breakpoint(xl) {
+      width: 50%;
+      margin: 0;
+    }
+
+    @include u.breakpoint(md) {
+      width: 90%;
+    }
+
+    @include u.breakpoint(sm) {
+      width: 100%;
+    }
+  }
+
+  .subtitle {
+    @include u.subtitleRed;
+    margin-bottom: 1rem;
+
+    @include u.breakpoint(sm) {
+      margin-bottom: 0;
+    }
+  }
+
+  .title {
+    font-size: 3.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .desc {
+    font-size: 1.6rem;
+    max-width: 45rem;
+    margin-bottom: 3rem;
+    color: u.$dark-100;
+
+    @include u.breakpoint(xl) {
+      max-width: none;
+      width: 80%;
+    }
+
+    @include u.breakpoint(md) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .highlightRed {
+    color: u.$accent-red;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+}

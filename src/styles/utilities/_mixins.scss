@@ -1,0 +1,154 @@
+@use "./variables" as v;
+@use "./fonts" as f;
+
+@mixin flex($justify: flex-start, $direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin grid($column, $gap: 0) {
+  display: grid;
+  grid-template-columns: $column;
+  grid-gap: $gap;
+}
+
+@mixin maxWidth {
+  width: min(100%, 115em);
+  margin: 0 auto;
+}
+
+@mixin subtitleRed {
+  letter-spacing: 0.2rem;
+  color: v.$light-red;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+}
+
+@mixin ampersandStyle {
+  font-family: f.$fontSecondary;
+  font-size: 6.8rem;
+  font-weight: 400;
+  line-height: 6.8rem;
+  color: v.$accent-red;
+
+  @include breakpoint(sm) {
+    font-size: 4.8rem;
+  }
+}
+
+@mixin inputGray {
+  border: 1px solid v.$light-200;
+  background-color: lighten(v.$light-200, 12%);
+  color: v.$dark-200;
+
+  &::placeholder {
+    color: v.$light-500;
+  }
+}
+
+@mixin bgImage {
+  background: rgba(v.$light-200, 0.7) center center/cover no-repeat;
+}
+
+@mixin collectionStyles {
+  margin-bottom: 5rem;
+  @include grid(repeat(3, 1fr), 2rem);
+
+  @include breakpoint(md) {
+    grid-template-columns: 1fr;
+  }
+
+  &Button {
+    width: 100%;
+    @include flex(center, row);
+  }
+}
+
+// xl=1279px, lg=1023px, md=767px, sm=539px, vs=399px, xs=359px
+$breakpoint-values: (
+  "xl": 1279px,
+  "lg": 1023px,
+  "md": 767px,
+  "sm": 539px,
+  "vs": 399px,
+  "xs": 359px,
+);
+
+@mixin breakpoint($point) {
+  @media (max-width: map-get($breakpoint-values, $point)) {
+    @content;
+  }
+}
+
+@mixin reloadSlideEffect($slideDirection) {
+  @if $slideDirection == up {
+    @keyframes slide-up-reverse {
+      0% {
+        transform: translateY(7rem);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    animation: slide-up-reverse 1.2s ease;
+  } @else if $slideDirection == down {
+    @keyframes slide-up {
+      0% {
+        transform: translateY(-7rem);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    animation: slide-up 0.8s ease;
+  }
+}
+
+@mixin inViewSlideEffect($slideDirection) {
+  @if $slideDirection == up {
+    transform: translateY(7rem);
+    opacity: 0;
+    transition: 0.6s;
+
+    &.inView {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  } @else if $slideDirection == down {
+    transform: translateY(-7rem);
+    opacity: 0;
+    transition: 0.6s;
+
+    &.inView {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  } @else if $slideDirection == left {
+    transform: translateX(-7rem);
+    opacity: 0;
+    transition: 0.6s;
+
+    &.inView {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  } @else if $slideDirection == right {
+    transform: translateX(7rem);
+    opacity: 0;
+    transition: 0.6s;
+
+    &.inView {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

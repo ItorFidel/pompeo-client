@@ -1,0 +1,91 @@
+@use "../utilities" as u;
+
+.form {
+  width: min(100%, 75rem);
+
+  .profileImg {
+    @include u.flex(space-between, row);
+    align-items: flex-end;
+    gap: 2rem;
+    background-color: rgba(u.$light-200, 0.3);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 4rem;
+
+    @include u.breakpoint(sm) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .imageContainer {
+      background-color: u.$light-200;
+      width: 18rem;
+      height: 11rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      span {
+        font-size: 1.2rem;
+        user-select: none;
+      }
+    }
+
+    .labelConainer {
+      width: 100%;
+    }
+
+    .uploadProgress {
+      width: 100%;
+      height: 0.5rem;
+      background-color: u.$light-300;
+      border-radius: 0.5rem;
+      position: relative;
+
+      .inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: u.$dark-100;
+        border-radius: 0.5rem;
+        transition: 0.5s;
+      }
+    }
+
+    .uploadBtn {
+      background-color: u.$light-300;
+      border-radius: 0.3rem;
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      @include u.flex(center, row);
+      transition: background-color 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: u.$light-400;
+      }
+
+      svg {
+        font-size: 2.5rem;
+        color: u.$dark-100;
+      }
+    }
+  }
+
+  .inputField {
+    width: 100%;
+    @include u.grid(repeat(2, 1fr), 2rem);
+
+    @include u.breakpoint(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

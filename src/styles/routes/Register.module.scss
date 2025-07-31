@@ -1,0 +1,26 @@
+@use "../utilities" as u;
+
+.form {
+  width: min(100%, 75rem);
+
+  .inputContainer {
+    @include u.grid(repeat(2, 1fr), 2rem);
+    margin-bottom: 2rem;
+
+    @include u.breakpoint(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .login {
+    font-size: 1.2rem;
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: u.$accent-red;
+      }
+    }
+  }
+}

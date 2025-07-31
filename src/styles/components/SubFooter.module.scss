@@ -1,0 +1,22 @@
+@use "../utilities" as u;
+
+.subFooter {
+  padding: 2.5em;
+  background-color: lighten(u.$light-200, 10%);
+  font-size: 1.3em;
+  text-align: center;
+
+  @include u.breakpoint(md) {
+    padding: 1.5em;
+    font-size: 1.2rem;
+  }
+
+  a {
+    font-weight: 500;
+    text-decoration: underline;
+
+    &:hover {
+      color: u.$accent-red;
+    }
+  }
+}

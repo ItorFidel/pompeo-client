@@ -1,0 +1,42 @@
+@use "../utilities" as u;
+
+.socialLinks {
+  @include u.flex(unset, row);
+  gap: 5px;
+
+  .link {
+    border: 1px solid rgba(u.$light-200, 0.7);
+    transition: 0.3s;
+
+    &:hover {
+      img {
+        filter: opacity(1);
+      }
+
+      &.orange {
+        border: 1px solid orange;
+      }
+
+      &.red {
+        border: 1px solid red;
+      }
+
+      &.maroon {
+        border: 1px solid maroon;
+      }
+    }
+
+    a {
+      width: 30px;
+      height: 30px;
+      @include u.flex(center, row);
+    }
+
+    img {
+      width: 15px;
+      height: 15px;
+      filter: opacity(0.6);
+      transition: 0.3s;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@use "../../utilities" as u;
+
+.navbarLink {
+  color: u.$light-500;
+
+  @include u.breakpoint(lg) {
+    width: 100%;
+
+    &:not(:last-child) {
+      border-bottom: u.$bdBottom;
+    }
+  }
+
+  &:hover {
+    color: u.$dark-300;
+  }
+
+  &.active {
+    color: u.$accent-red;
+
+    &:hover {
+      color: u.$accent-red;
+    }
+  }
+
+  a {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: u.$fontPrimary;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    padding: 2.1rem 2rem;
+    transition: color 0.3s;
+
+    @include u.breakpoint(lg) {
+      display: inline-block;
+      padding: 2em;
+      width: 100%;
+    }
+
+    @include u.breakpoint(md) {
+      font-size: 1.15rem;
+      padding: 1.75em;
+    }
+
+    @include u.breakpoint(sm) {
+      padding: 1.5em;
+    }
+  }
+}

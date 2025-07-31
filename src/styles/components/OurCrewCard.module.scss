@@ -1,0 +1,42 @@
+@use "../utilities" as u;
+
+.ourCrewCard {
+  background-color: u.$light-100;
+  padding: 3rem;
+  @include u.flex(center, column);
+}
+
+.profile {
+  margin-bottom: 0.5rem;
+  @include u.flex(center, column);
+
+  .image {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    @include u.bgImage;
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .subTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    color: u.$light-400;
+    margin-bottom: 2rem;
+  }
+}
+
+.desc {
+  color: u.$dark-100;
+  margin-bottom: 3em;
+
+  @include u.breakpoint(md) {
+    text-align: center;
+  }
+}

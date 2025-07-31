@@ -1,0 +1,49 @@
+@use "../utilities" as u;
+
+.collectionCard {
+  border-bottom: 1px solid u.$light-300;
+
+  &:hover {
+    border-bottom: 1px solid u.$accent-red;
+
+    img {
+      transform: scale(110%);
+      filter: brightness(90%);
+    }
+  }
+
+  .imgContainer {
+    overflow: hidden;
+    height: min-content;
+
+    .imgLink {
+      height: min-content;
+
+      img {
+        width: 100%;
+        height: 100%;
+        transition: 0.4s ease;
+      }
+    }
+  }
+
+  .infoContainer {
+    margin-block: 1.5rem;
+
+    .infoLink {
+      font-size: 1.6rem;
+      color: u.$dark-100;
+      line-height: 2.6rem;
+      transition: 0.3s;
+
+      &:hover {
+        color: u.$accent-red;
+      }
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  }
+}

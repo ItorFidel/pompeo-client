@@ -1,0 +1,103 @@
+@use "../utilities" as u;
+
+.latestNews {
+  position: relative;
+
+  .container {
+    transform: translateY(15em);
+    opacity: 0;
+    transition: 1s;
+
+    &.inView {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .paperJetContainer {
+    position: absolute;
+    top: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8rem;
+    height: 8rem;
+    background: #ebb96a;
+    @include u.flex(center, row);
+    border-radius: 50%;
+    margin: 5em auto 0;
+  }
+
+  .img {
+    width: 4rem;
+    height: 4rem;
+    @include u.bgImage;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/pompeo-47e63.appspot.com/o/Assets%2Flatest-news.png?alt=media&token=121347c1-b5ad-485b-9786-07e83e0e7431");
+    background-color: transparent;
+  }
+
+  .formContainer {
+    width: 100%;
+    padding: 24rem 2rem 12rem;
+  }
+
+  .form {
+    @include u.flex(center, column);
+    width: 50rem;
+    margin: 5rem auto 0;
+
+    @include u.breakpoint(sm) {
+      width: 95%;
+    }
+  }
+
+  .email {
+    width: 100%;
+    @include u.flex(center, row);
+    gap: 0.4rem;
+
+    @include u.breakpoint(sm) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .input {
+      flex: 2.1;
+
+      @include u.breakpoint(sm) {
+        width: 100%;
+      }
+    }
+
+    button {
+      flex: 1;
+      background-color: u.$dark-500;
+      color: u.$light-100;
+      padding: 1rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+      cursor: pointer;
+      transition: 0.4s;
+
+      @include u.breakpoint(sm) {
+        width: 100%;
+      }
+
+      &:hover {
+        background-color: u.$accent-red;
+      }
+    }
+  }
+
+  .checkbox {
+    @include u.flex(center, row);
+    margin-top: 4em;
+
+    label {
+      margin-left: 0.5rem;
+      font-size: 1.2rem;
+      color: u.$light-500;
+      cursor: pointer;
+    }
+  }
+}

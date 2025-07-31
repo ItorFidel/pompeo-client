@@ -1,0 +1,59 @@
+@use "../utilities" as u;
+
+.footer {
+  padding-block: 12rem 8rem;
+  background-color: #dbdbdb1a;
+  border-bottom: u.$bdBottom;
+
+  @include u.breakpoint(md) {
+    padding: 8rem 5.3rem;
+  }
+
+  .container {
+    @include u.maxWidth;
+    @include u.flex(center, column);
+    overflow: hidden;
+  }
+
+  .text {
+    font-size: 1.3rem;
+    margin-top: 1.3rem;
+    max-width: 35rem;
+    text-align: center;
+  }
+
+  .contactContainer {
+    @include u.grid(repeat(3, 1fr), 5em);
+    width: 100%;
+    margin-top: 7em;
+    @include u.inViewSlideEffect(right);
+
+    @include u.breakpoint(md) {
+      grid-template-columns: 1fr;
+      grid-gap: 3em;
+    }
+  }
+
+  .contact {
+    @include u.flex(center, column);
+
+    img {
+      width: 4em;
+      margin-bottom: 1em;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5em;
+    }
+
+    p {
+      font-size: 1.4rem;
+      max-width: 13em;
+      text-align: center;
+      color: u.$dark-200;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@use "../utilities" as u;
+
+.formContainer {
+  min-height: calc(100vh - 9rem);
+  @include u.bgImage;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/pompeo-47e63.appspot.com/o/Assets%2Fshop-hero-image.jpg?alt=media&token=0bf5abd7-664a-4eff-bcb4-4b524506c128");
+  background-color: u.$light-200;
+  @include u.flex(center, row);
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 0;
+    background-color: rgba(u.$light-200, 0.5);
+    backdrop-filter: blur(0.2rem);
+    z-index: 1;
+  }
+}
+
+.form {
+  padding: 2.4rem;
+  margin: 2.4rem;
+  background-color: u.$light-100;
+  border-radius: 0.5rem;
+  z-index: 10;
+
+  h1 {
+    font-size: 2.6rem;
+    font-family: u.$fontPrimary;
+    margin-bottom: 2.8rem;
+  }
+
+  .submitBtn {
+    width: 100%;
+    text-align: center;
+    margin-top: 5rem;
+  }
+}

@@ -1,0 +1,66 @@
+@use "../utilities" as u;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: u.$fontPrimary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+}
+
+p,
+a {
+  font-family: u.$fontTertiary;
+}
+
+p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+}
+
+a,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+textarea {
+  outline: 0;
+}

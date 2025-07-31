@@ -1,0 +1,89 @@
+@use "../utilities" as u;
+
+.top {
+  @include u.flex(space-around, row);
+  width: 100%;
+
+  @include u.breakpoint(md) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .disc {
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    padding-top: 1.5rem;
+    @include u.flex(center, column);
+    border: 3rem solid transparent;
+    transition: 0.35s;
+
+    @include u.breakpoint(xl) {
+      width: 20em;
+      height: 20em;
+    }
+
+    &:hover {
+      box-shadow: 0 10px 20px -3px u.$light-400;
+    }
+
+    &.yellow {
+      background-color: #e4b366;
+      border-color: #d7aa61;
+    }
+
+    &.red {
+      background-color: #f05b10;
+      border-color: #0000000d;
+    }
+
+    &.maroon {
+      background-color: #a21010;
+      border-color: #960f0f;
+    }
+
+    img {
+      width: 7rem;
+    }
+
+    h3 {
+      @include u.subtitleRed;
+      color: u.$light-100;
+      margin-top: 0.4rem;
+      line-height: 3rem;
+    }
+  }
+}
+
+.bottom {
+  margin-block: 10rem 1rem;
+  @include u.flex(center, row);
+  gap: 12rem;
+
+  @include u.breakpoint(xl) {
+    gap: 10rem;
+  }
+
+  @include u.breakpoint(md) {
+    flex-direction: column;
+    margin-top: 8rem;
+    gap: 8rem;
+  }
+
+  .container {
+    h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      max-width: 17ch;
+      line-height: 3.6rem;
+    }
+
+    p {
+      margin-top: 2rem;
+      color: u.$dark-100;
+
+      @include u.breakpoint(md) {
+        width: 90%;
+      }
+    }
+  }
+}

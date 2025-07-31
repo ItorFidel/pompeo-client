@@ -1,0 +1,154 @@
+@use "../utilities" as u;
+
+.product {
+  .productDetails {
+    padding: u.$sectPaddingBlock 2.4rem;
+    position: relative;
+
+    @include u.breakpoint(md) {
+      padding-inline: 4rem;
+    }
+
+    .container {
+      @include u.maxWidth;
+      @include u.flex(unset, row);
+      gap: 6rem;
+
+      @include u.breakpoint(lg) {
+        flex-direction: column;
+        gap: 8rem;
+      }
+    }
+
+    .image {
+      @include u.bgImage;
+      width: 73rem;
+      height: 70rem;
+
+      @include u.breakpoint(lg) {
+        width: 100%;
+      }
+    }
+
+    .info {
+      .subTitle {
+        @include u.subtitleRed;
+        margin-bottom: 2rem;
+
+        @include u.breakpoint(sm) {
+          font-size: 1.6rem;
+        }
+      }
+
+      .title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+
+        @include u.breakpoint(sm) {
+          font-size: 2.5rem;
+        }
+      }
+
+      .price {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+
+        @include u.breakpoint(sm) {
+          font-size: 1.5rem;
+        }
+      }
+
+      .desc {
+        color: u.$dark-100;
+        max-width: 68rem;
+        margin-bottom: 3rem;
+
+        @include u.breakpoint(lg) {
+          max-width: none;
+          width: 90%;
+        }
+      }
+
+      .labelFont {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+
+      .order {
+        margin-bottom: 4rem;
+
+        &Desc {
+          @extend .labelFont;
+          @include u.flex();
+          padding: 1rem 0;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid rgba(u.$light-200, 0.3);
+          }
+
+          &.socials {
+            margin-top: 1rem;
+          }
+
+          span {
+            font-size: 1.4rem;
+            font-weight: 400;
+            font-family: u.$fontTertiary;
+            color: u.$light-500;
+            margin-left: 1em;
+          }
+        }
+      }
+
+      .quantity {
+        div {
+          @extend .labelFont;
+          margin-bottom: 1rem;
+        }
+
+        input {
+          display: block;
+          @include u.inputGray;
+          padding: 0.8rem 0.6rem 0.8rem 1.2rem;
+          margin-bottom: 1rem;
+          width: 6rem;
+          color: u.$light-500;
+          font-size: 1.5rem;
+        }
+      }
+
+      .button {
+        display: inline-block;
+      }
+    }
+  }
+
+  .bdBottom {
+    height: 0.1rem;
+    background-color: u.$light-200;
+    @include u.maxWidth;
+  }
+
+  .relatedItems {
+    padding: u.$sectPaddingBlock 2.4rem;
+
+    .container {
+      @include u.maxWidth;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 4rem;
+    }
+
+    .items {
+      @include u.flex(center, column);
+
+      &Container {
+        @include u.collectionStyles;
+      }
+    }
+  }
+}

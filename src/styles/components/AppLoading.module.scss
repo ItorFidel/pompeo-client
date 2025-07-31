@@ -1,0 +1,7 @@
+@use "../utilities" as u;
+
+.appLoading {
+  width: 100%;
+  height: 90vh;
+  @include u.flex(center);
+}

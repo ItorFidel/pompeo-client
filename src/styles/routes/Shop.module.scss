@@ -1,0 +1,23 @@
+@use "../utilities" as u;
+
+.searchResults {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+
+  .clear {
+    color: u.$accent-red;
+    font-size: 1.6rem;
+    text-decoration: underline;
+    transition: 0.3s;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.collection {
+  @include u.collectionStyles;
+  margin-bottom: 0;
+}

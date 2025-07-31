@@ -1,0 +1,82 @@
+@use "../utilities" as u;
+
+.ourCrew {
+  background-color: u.$light-gray;
+
+  .cardContainer {
+    @include u.grid(repeat(3, 1fr), 3.5rem);
+
+    @include u.breakpoint(xl) {
+      grid-gap: 2.5rem;
+    }
+
+    @include u.breakpoint(md) {
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
+    }
+  }
+}
+
+.ourMission {
+  position: relative;
+  padding-top: 5rem;
+
+  .image {
+    @include u.bgImage;
+    background-color: transparent;
+    width: 24rem;
+    height: 48rem;
+    position: absolute;
+    left: 20%;
+    top: -1rem;
+    z-index: 100;
+    transition: 1s;
+
+    @include u.breakpoint(md) {
+      left: 40%;
+    }
+
+    @include u.breakpoint(sm) {
+      width: 20rem;
+      height: 40rem;
+    }
+
+    &.show {
+      animation: slide-down 1.5s;
+
+      @keyframes slide-down {
+        0% {
+          transform: translateY(-10rem);
+          filter: opacity(0);
+        }
+        100% {
+          transform: translateY(0);
+          filter: opacity(1);
+        }
+      }
+    }
+  }
+
+  .showcase {
+    margin-bottom: 10rem;
+
+    @include u.breakpoint(md) {
+      margin-bottom: 0;
+      grid-gap: 8rem;
+    }
+
+    img {
+      width: 30rem !important;
+      transform: translateX(-4rem) !important;
+
+      @include u.breakpoint(sm) {
+        width: 25rem !important;
+        transform: translateX(-2.5rem) !important;
+      }
+    }
+  }
+
+  .ampersandStyle {
+    @include u.ampersandStyle;
+  }
+}

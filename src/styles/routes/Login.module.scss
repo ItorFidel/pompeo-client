@@ -1,0 +1,54 @@
+@use "../utilities" as u;
+
+.form {
+  width: min(100%, 40rem);
+
+  .loginInput {
+    margin-bottom: 2rem;
+  }
+
+  .signUpContainer {
+    @include u.flex(space-between);
+
+    @include u.breakpoint(vs) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    span {
+      font-size: 1.2rem;
+
+      .signUp {
+        text-decoration: underline;
+
+        &:hover {
+          color: u.$accent-red;
+        }
+      }
+    }
+
+    .keepSignedIn {
+      @include u.flex(unset, row);
+      gap: 0.75rem;
+
+      input,
+      label {
+        cursor: pointer;
+      }
+
+      label {
+        user-select: none;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .forgotPassword {
+    text-decoration: underline;
+
+    &:hover {
+      color: u.$accent-red;
+    }
+  }
+}

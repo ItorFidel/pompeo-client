@@ -1,0 +1,27 @@
+@use "../utilities" as u;
+
+.form {
+  width: min(100%, 75rem);
+
+  .inputContainer {
+    @include u.grid(repeat(2, 1fr), 2rem);
+    margin-bottom: 4rem;
+
+    @include u.breakpoint(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .checkoutTotal {
+    p {
+      @include u.flex(space-between);
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      text-transform: capitalize;
+    }
+
+    .value {
+      font-weight: 600;
+    }
+  }
+}
