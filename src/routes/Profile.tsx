@@ -47,6 +47,8 @@ const Profile = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const db = getFirestore(app);
 
+  console.log(db);
+
   const handleInputFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && profileImgRef.current) {
       const image = e.target.files[0];

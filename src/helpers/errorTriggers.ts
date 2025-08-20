@@ -1,11 +1,11 @@
-export function triggerError(
+export function triggerError<T>(
   isError: T,
   value: boolean,
   setIsError: React.Dispatch<React.SetStateAction<T>>,
   options?: object
 ) {
   const newIsError = { ...isError };
-  Object.keys(isError).map((key) => (newIsError[key] = value));
+  Object.keys(isError as object).map((key) => (newIsError[key] = value));
   setIsError(newIsError);
 
   if (options) {
@@ -13,14 +13,16 @@ export function triggerError(
   }
 }
 
-export function triggerErrorMessage(
+export function triggerErrorMessage<T>(
   initialMessage: T,
   currentMessage: string,
   setCurrentMessage: React.Dispatch<React.SetStateAction<T>>,
   options?: object
 ) {
   const newMessage = { ...initialMessage };
-  Object.keys(initialMessage).map((key) => (newMessage[key] = currentMessage));
+  Object.keys(initialMessage as object).map(
+    (key) => (newMessage[key] = currentMessage)
+  );
   setCurrentMessage(newMessage);
 
   if (options) {
