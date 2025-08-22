@@ -1,1 +1,0 @@
-import{j as t}from"./index-8955b117.js";const r="_hero_bh6td_5",c="_container_bh6td_34",i="_title_bh6td_38",e={hero:r,container:c,title:i},l=({image:s,title:n,children:o})=>t.jsx("section",{className:e.hero,style:{backgroundImage:`url(${s})`},children:t.jsxs("div",{className:e.container,children:[t.jsx("h1",{className:e.title,children:n}),o]})});export{l as H};
