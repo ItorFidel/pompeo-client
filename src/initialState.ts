@@ -40,3 +40,6 @@ export const userClientErrorMessage = {
   username: "Username is required",
   password: "Password is required",
 };
+
+// "predeploy": "npm run build",
+// "deploy": "gh-pages -d dist"
