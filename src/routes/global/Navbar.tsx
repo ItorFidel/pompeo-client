@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "../../styles/routes/global/Navbar.module.scss";
 import Logo from "./Logo";
 import NavbarLink from "./NavbarLink";
@@ -57,7 +57,6 @@ const Navbar = () => {
   const handleRemoveItem = (id: string) => {
     if (user.email) {
       dispatch(removeUserCartItem(id));
-      updateUser(user);
     } else {
       dispatch(removeDefaultCartItem(id));
     }
@@ -79,6 +78,10 @@ const Navbar = () => {
 
     handleToggleProfile();
   };
+
+  useEffect(() => {
+    updateUser(user);
+  }, [user, updateUser]);
 
   useClosePopup(setIsCartOpen, cartInnerRef, cartIconRef);
   useClosePopup(setIsProfileOpen, profileDropdownRef, profileRef);
